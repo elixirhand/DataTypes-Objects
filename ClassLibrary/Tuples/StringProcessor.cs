@@ -4,12 +4,7 @@ namespace ClassLibrary.Tuples
 {
     public class StringProcessor
     {
-        private class Result
-        {
-            public int Length { get; set; }
-            public string UppercaseVersion { get; set; }
-        }
-
+       
         public List<string> ToUpperAndWithLength(List<string> stringsToProcess)
         {
             var results = new List<string>();
@@ -24,13 +19,9 @@ namespace ClassLibrary.Tuples
             return results;
         }        
 
-        private Result Process(string s)
+        private (int Length, string UppercaseVersion) Process(string s)
         {
-            return new Result
-            {
-                Length = s.Length,
-                UppercaseVersion = s.ToUpperInvariant()
-            };           
+            return (s.Length, s.ToUpperInvariant());       
         }
     }
 }
