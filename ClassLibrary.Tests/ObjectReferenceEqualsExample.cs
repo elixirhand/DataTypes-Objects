@@ -8,8 +8,9 @@ namespace ClassLibrary.Tests
         [Fact]
         public void ExampleWhereReferenceTypeUsesValueEqualitySematics()
         {
-            Uri uri1 = new Uri("https://elixirhand.com/");
-            Uri uri2 = new Uri("https://elixirhand.com/");
+            //http:/elixirhand.com/
+            Uri uri1 = new Uri("http://elixirhand.com");
+            Uri uri2 = new Uri("http://elixirhand.com");
 
             var areEqual = uri1 == uri2;
 
