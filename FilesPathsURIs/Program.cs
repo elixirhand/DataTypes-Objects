@@ -7,7 +7,7 @@ namespace FilesPathsURIs
     {
         static void Main(string[] args)
         {
-           
+            FindUsefulPath();
         }
 
         public string GetInputFilePathShort()
@@ -39,6 +39,41 @@ namespace FilesPathsURIs
 
                 return fullPath;
         }
+
+        public static void FindUsefulPath()
+        {
+            string path = @"C:\temp\pspath\test.txt";
+            path = Path.ChangeExtension(path, "bak");
+
+            string dirName = Path.GetDirectoryName(path);
+            Console.WriteLine(path);
+
+            Console.WriteLine();
+
+            Console.WriteLine(dirName);
+            Console.WriteLine();
+
+            string ext = Path.GetExtension(path);
+
+            Console.WriteLine(ext);
+            Console.WriteLine();
+
+            string fileN = Path.GetFileName(path);
+            Console.WriteLine(fileN);
+
+            Console.WriteLine();
+
+            string fileNE = Path.GetFileNameWithoutExtension(path);
+            Console.WriteLine($"File Name wwithout extension: {fileNE}");
+
+            Console.WriteLine();
+
+            bool hasExtension = Path.HasExtension(path);
+
+            Console.WriteLine($"File Has Extension Or Not: {hasExtension}");
+
+        }
+   
 
     }
 }
