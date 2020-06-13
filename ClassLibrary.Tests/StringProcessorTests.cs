@@ -4,7 +4,7 @@ using Xunit;
 
 namespace ClassLibrary.Tests
 {
-    public class StringProcessorShould
+    public class StringProcessorTests
     {
         [Fact]
         public void Return_lengths_and_uppercase_strings()
