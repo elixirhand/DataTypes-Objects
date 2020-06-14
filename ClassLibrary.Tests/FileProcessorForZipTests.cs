@@ -162,7 +162,6 @@ namespace ClassLibrary.Tests
 
         #region zip files
 
-
         private const string inputDirectory = @"c:\psdata\somefiles";
         private const string outputZipFile = @"c:\psdata\somefiles1.zip";
 
@@ -177,6 +176,27 @@ namespace ClassLibrary.Tests
 
             Assert.True(File.Exists(outputZipFile));
         }
+
+        [Fact]
+        public void UnzipFiles()
+        {
+            ZipFiles();
+
+            string unzipDestinationDir = Path.Combine(inputDirectory, @"..\unzip");
+            unzipDestinationDir = Path.GetFullPath(unzipDestinationDir);
+
+            if (Directory.Exists(unzipDestinationDir))
+            {
+                Directory.Delete(unzipDestinationDir, true);
+            }
+
+            FileProcessor sut = new FileProcessor();
+
+            sut.UnZip(outputZipFile, unzipDestinationDir);
+
+            // Asserts omitted
+        }
+
 
         #endregion
     }

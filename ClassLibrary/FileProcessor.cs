@@ -32,7 +32,7 @@ namespace ClassLibrary
         public string GetUploadUri()
         {
             //Uri uploadUri = new Uri("https://elixirhand.com");
-            Uri uploadUri = new Uri("https://elixirhand.com/");
+            Uri uploadUri = new Uri("http://elixirhand.com/opinion");
 
             return uploadUri.ToString();
         }
@@ -46,5 +46,9 @@ namespace ClassLibrary
                                         true);
         }
 
+        public void UnZip(string zipFilePath, string outputDir)
+        {
+            ZipFile.ExtractToDirectory(zipFilePath, outputDir);
+        }
     }
 }
