@@ -197,6 +197,17 @@ namespace ClassLibrary.Tests
             // Asserts omitted
         }
 
+        [Fact]
+        public void AddFile()
+        {
+            ZipFiles();
+
+            FileProcessor sut = new FileProcessor();
+
+            sut.AddToZip(outputZipFile, @"c:\psdata\AnExtraFile.txt");
+
+            // Asserts omitted
+        }
 
         #endregion
     }

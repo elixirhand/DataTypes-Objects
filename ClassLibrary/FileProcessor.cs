@@ -50,5 +50,15 @@ namespace ClassLibrary
         {
             ZipFile.ExtractToDirectory(zipFilePath, outputDir);
         }
+
+        public void AddToZip(string zipFilePath, string extraFilePath)
+        {
+            using (ZipArchive zip = ZipFile.Open(zipFilePath, ZipArchiveMode.Update))
+            {
+                zip.CreateEntryFromFile(extraFilePath, Path.GetFileName(extraFilePath));
+            }
+        }
+   
+        
     }
 }
