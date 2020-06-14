@@ -209,6 +209,18 @@ namespace ClassLibrary.Tests
             // Asserts omitted
         }
 
+        [Fact]
+        public void RemoveFile()
+        {
+            ZipFiles();
+
+            FileProcessor sut = new FileProcessor();
+
+            sut.RemoveFromZip(outputZipFile, @"somefiles\text1.txt");
+
+            // Asserts omitted
+        }
+
         #endregion
     }
 }

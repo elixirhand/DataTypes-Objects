@@ -58,7 +58,14 @@ namespace ClassLibrary
                 zip.CreateEntryFromFile(extraFilePath, Path.GetFileName(extraFilePath));
             }
         }
-   
-        
+
+        public void RemoveFromZip(string zipFilePath, string fileToRemove)
+        {
+            using (ZipArchive zip = ZipFile.Open(zipFilePath, ZipArchiveMode.Update))
+            {
+                var f1 = zip.GetEntry(fileToRemove);
+                f1.Delete();
+            }
+        }
     }
 }
