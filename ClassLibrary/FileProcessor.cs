@@ -67,5 +67,35 @@ namespace ClassLibrary
                 f1.Delete();
             }
         }
+
+        // this method returns an array of compress bytes
+        public byte[] Compress(byte[] originalBytes)
+        {
+            using (var compressionStream = new MemoryStream())
+            {
+                using (var gzs = new GZipStream(compressionStream, CompressionMode.Compress))
+                {
+                    gzs.Write(originalBytes, 0, originalBytes.Length);
+                }
+
+                byte[] compressedBytes = compressionStream.ToArray();
+
+                return compressedBytes;
+            }
+        }
+
+        public byte[] Decompress(byte[] compressedBytes)
+        {
+            using (var compressedStream = new MemoryStream(compressedBytes))
+            using (var decompressedStream = new MemoryStream())
+            using (var gzs = new GZipStream(compressedStream, CompressionMode.Decompress))
+            {
+                gzs.CopyTo(decompressedStream);
+
+                byte[] decompressedBytes = decompressedStream.ToArray();
+
+                return decompressedBytes;
+            }
+        }
     }
 }
