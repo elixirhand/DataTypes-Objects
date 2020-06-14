@@ -38,5 +38,13 @@ namespace ClassLibrary
         }
 
 
+        public void ZipDirectory(string dirToZip, string outputZipFilePath)
+        {
+            ZipFile.CreateFromDirectory(dirToZip,
+                                        outputZipFilePath,
+                                        CompressionLevel.Fastest,
+                                        true);
+        }
+
     }
 }

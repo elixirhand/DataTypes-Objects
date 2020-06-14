@@ -166,6 +166,17 @@ namespace ClassLibrary.Tests
         private const string inputDirectory = @"c:\psdata\somefiles";
         private const string outputZipFile = @"c:\psdata\somefiles1.zip";
 
+        [Fact]
+        public void ZipFiles()
+        {
+            File.Delete(outputZipFile);
+
+            FileProcessor sut = new FileProcessor();
+
+            sut.ZipDirectory(inputDirectory, outputZipFile);
+
+            Assert.True(File.Exists(outputZipFile));
+        }
 
         #endregion
     }
